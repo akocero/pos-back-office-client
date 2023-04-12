@@ -111,7 +111,7 @@
 <script setup>
 import { ref, onBeforeMount } from 'vue';
 import { useAuthStore } from '@/stores/auth';
-import useAlert from '../../composables/useAlert';
+import useAlert from '@/composables/useAlert';
 import _ from 'lodash';
 
 const store = useAuthStore();

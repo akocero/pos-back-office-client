@@ -5,7 +5,7 @@
 		:disabled="disabled"
 		:class="[
 			colorClass[color],
-			'inline-block  rounded py-2 px-3 shadow disabled:border-0 disabled:bg-gray-200 disabled:text-gray-500 disabled:shadow-none',
+			'inline-block rounded-lg  py-2 px-4 shadow-sm  disabled:border-0 disabled:bg-gray-200 disabled:text-gray-500 disabled:shadow-none',
 			_class,
 		]"
 	>
@@ -19,7 +19,7 @@
 		:disabled="disabled"
 		:class="[
 			colorClass[color],
-			'inline-block  rounded py-2 px-3 shadow disabled:border-0 disabled:bg-gray-200 disabled:text-gray-500 disabled:shadow-none',
+			'inline-block rounded-lg py-2  px-4 shadow-sm   disabled:border-0 disabled:bg-gray-200 disabled:text-gray-500 disabled:shadow-none',
 			_class,
 		]"
 	>
@@ -56,8 +56,8 @@ const props = defineProps({
 });
 
 const colorClass = {
-	primary: 'bg-gray-700 text-white hover:bg-gray-800',
-	default: 'border  bg-gray-100 text-gray-700 shadow-none',
+	primary: 'bg-indigo-500 text-white hover:bg-indigo-600 shadow-indigo-100',
+	default: 'bg-gray-100 hover:bg-gray-200 text-gray-700 shadow-none',
 	yellow: 'bg-yellow-500 text-yellow-50 ',
 	blue: 'bg-blue-500 text-blue-50 ',
 	green: 'bg-green-500 text-white  hover:bg-green-400',

@@ -40,11 +40,46 @@ export default function useUtils() {
 		return arrayObjects;
 	};
 
+	const sortedBy = ({ arrayObjects, propertyName, order }) => {
+		arrayObjects.sort(function compare(a, b) {
+			if (a[propertyName] < b[propertyName]) {
+				return -1;
+			}
+			if (a[propertyName] > b[propertyName]) {
+				return 1;
+			}
+			return 0;
+		});
+
+		if (order === 'DESC') {
+			arrayObjects.reverse();
+		}
+
+		return arrayObjects;
+	};
+
+	const getMinMax = ({ arrayObjects, propertyName }) => {
+		var lowest = Number.POSITIVE_INFINITY;
+		var highest = Number.NEGATIVE_INFINITY;
+		var tmp;
+		for (var i = arrayObjects.length - 1; i >= 0; i--) {
+			tmp = arrayObjects[i][propertyName];
+			if (tmp < lowest) lowest = tmp;
+			if (tmp > highest) highest = tmp;
+		}
+		return {
+			lowest,
+			highest,
+		};
+	};
+
 	return {
 		capitalize,
 		numberFormat,
 		sort,
 		convertToRelativeTime,
 		currencyFormat,
+		sortedBy,
+		getMinMax,
 	};
 }

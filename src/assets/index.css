@@ -15,7 +15,7 @@
 
 @layer components {
 	.nav-item {
-		@apply flex items-center overflow-hidden border-l-2 border-transparent px-[13.5px] py-2 text-gray-300 hover:bg-white/10 hover:text-gray-50;
+		@apply mx-4 flex items-center  overflow-hidden border-transparent px-[13.5px] py-2 text-gray-700 hover:bg-white/10 hover:text-gray-800;
 	}
 
 	.nav__item:hover .nav__item--sub {
@@ -23,18 +23,18 @@
 	}
 
 	.active.nav-item {
-		@apply border-l-2 border-white bg-gray-900 text-gray-50;
+		@apply rounded-lg border-white bg-indigo-500  text-indigo-50;
 	}
 	.nav-subitem {
-		@apply flex items-center whitespace-nowrap border-l-2 border-transparent py-2 px-[15px] text-gray-500 hover:bg-white/10 hover:text-gray-50;
+		@apply mx-4 flex items-center  whitespace-nowrap border-transparent py-2 px-[15px] text-gray-400 hover:bg-white/10 hover:text-gray-800;
 	}
 
 	.active.nav-subitem {
-		@apply border-l-2 border-white bg-white/10 text-white;
+		@apply rounded-lg border-white bg-white/10 bg-indigo-100  text-gray-600;
 	}
 
 	.card {
-		@apply mb-4 w-full rounded bg-white p-6 shadow-sm;
+		@apply mb-4 w-full rounded-lg bg-white p-6 shadow-sm;
 	}
 
 	.table {

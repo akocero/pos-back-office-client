@@ -1,12 +1,12 @@
 <template>
 	<div
 		:class="[
-			'fixed top-0 left-0 z-20 h-14 w-full bg-white px-6 ',
+			'fixed top-0 left-0 z-20 h-14 w-full bg-white px-6 shadow-sm ',
 			appStore.isSidebarOpen ? 'sm:pl-[16.5rem] 2xl:pl-[17.5rem]' : '',
 		]"
 	>
 		<div
-			class="fixed top-0 left-0 hidden h-14 w-60 bg-main px-4 text-white shadow-sm sm:block 2xl:w-64"
+			class="fixed top-0 left-0 hidden h-14 w-60 bg-white px-7 text-gray-800 sm:block 2xl:w-64"
 		>
 			<div class="flex h-full items-center">
 				<vue-feather

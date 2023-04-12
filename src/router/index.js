@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Login from '@/views/auth/Login.vue';
-import Home from '@/views/ecommerce/home/index.vue';
+import POSAuth from '@/views/pos/auth/index.vue';
 import ForgotPassword from '@/views/auth/ForgotPassword.vue';
 import Auth from '@/components/layouts/Auth.vue';
 import Signup from '@/views/auth/Signup.vue';
@@ -8,8 +8,7 @@ import ResetPassword from '@/views/auth/ResetPassword.vue';
 import NotFound from '@/views/NotFound.vue';
 import LinkTree from '@/views/LinkTree.vue';
 import Main from '@/components/layouts/Main.vue';
-import EComm from '@/components/ecommerce_layouts/Main.vue';
-import Dashboard from '@/views/Dashboard.vue';
+import POS from '@/components/pos_layouts/Main.vue';
 import { useAuthStore } from '@/stores/auth';
 
 const authRequired = (to, from, next) => {
@@ -27,84 +26,16 @@ const router = createRouter({
 	routes: [
 		{
 			path: '/',
-			name: 'ecomm',
+			name: 'pos',
 			// route level code-splitting
 			// this generates a separate chunk (About.[hash].js) for this route
 			// which is lazy-loaded when the route is visited.
-			component: EComm,
+			component: POS,
 			children: [
 				{
 					path: '',
-					name: 'home',
-					component: Home,
-				},
-
-				{
-					path: '/shop',
-					name: 'shop',
-					component: () => import('../views/ecommerce/Shop.vue'),
-				},
-				{
-					path: '/product/:id',
-					name: 'product',
-					component: () =>
-						import('../views/ecommerce/ProductDetails.vue'),
-				},
-				{
-					path: '/cart',
-					name: 'cart',
-					component: () => import('../views/ecommerce/Cart.vue'),
-				},
-				{
-					path: '/check-out',
-					name: 'check_out',
-					component: () => import('../views/ecommerce/CheckOut.vue'),
-				},
-				{
-					path: '/order-summary/:id',
-					name: 'order-summary',
-					component: () =>
-						import('../views/ecommerce/OrderSummary.vue'),
-				},
-				{
-					path: '/collections',
-					name: 'collections',
-					component: () =>
-						import('../views/ecommerce/Collection.vue'),
-				},
-				{
-					path: '/coming-soon',
-					name: 'coming-soon',
-					component: () =>
-						import('../views/ecommerce/ComingSoon.vue'),
-				},
-				{
-					path: '/sale-products',
-					name: 'sale-products',
-					component: () =>
-						import('../views/ecommerce/SaleProduct.vue'),
-				},
-				{
-					path: '/about',
-					name: 'about',
-					component: () => import('../views/ecommerce/About.vue'),
-				},
-				{
-					path: '/terms',
-					name: 'terms',
-					component: () => import('../views/ecommerce/Terms.vue'),
-				},
-				{
-					path: '/order-tracking',
-					name: 'order-tracking',
-					component: () =>
-						import('../views/ecommerce/OrderTracking.vue'),
-				},
-				{
-					path: '/return-refund',
-					name: 'return-refund',
-					component: () =>
-						import('../views/ecommerce/ReturnRefund.vue'),
+					name: 'pos.auth',
+					component: POSAuth,
 				},
 			],
 		},
@@ -137,8 +68,8 @@ const router = createRouter({
 			],
 		},
 		{
-			path: '/main',
-			name: 'main',
+			path: '/admin',
+			name: 'admin',
 			// route level code-splitting
 			// this generates a separate chunk (About.[hash].js) for this route
 			// which is lazy-loaded when the route is visited.
@@ -148,138 +79,118 @@ const router = createRouter({
 				{
 					path: 'dashboard',
 					name: 'dashboard',
-					component: () => import('../views/Dashboard.vue'),
+					component: () => import('../views/admin/Dashboard.vue'),
 				},
 				{
 					path: 'settings/manage-account',
 					name: 'settings.manage-account',
 					component: () =>
-						import('../views/settings/ManageAccount.vue'),
+						import('../views/admin/settings/ManageAccount.vue'),
 				},
 				{
 					path: 'sales/customers',
 					name: 'sales.customers',
-					component: () => import('../views/customer/index.vue'),
+					component: () =>
+						import('../views/admin/customer/index.vue'),
 				},
 				{
 					path: 'sales/customers/create',
 					name: 'sales.customers.create',
-					component: () => import('../views/customer/create.vue'),
+					component: () =>
+						import('../views/admin/customer/create.vue'),
 				},
 				{
 					path: 'sales/customers/edit/:id',
 					name: 'sales.customers.edit',
-					component: () => import('../views/customer/edit.vue'),
-				},
-				{
-					path: 'warehouse/inventory',
-					name: 'warehouse.inventory',
-					component: () => import('../views/Inventory.vue'),
+					component: () => import('../views/admin/customer/edit.vue'),
 				},
 				{
 					path: 'warehouse/products',
 					name: 'warehouse.products',
-					component: () => import('../views/product/index.vue'),
+					component: () => import('../views/admin/product/index.vue'),
 				},
 				{
 					path: 'warehouse/products/create',
 					name: 'warehouse.products.create',
-					component: () => import('../views/product/create.vue'),
+					component: () =>
+						import('../views/admin/product/create.vue'),
 				},
 				{
 					path: 'warehouse/products/edit/:id',
 					name: 'warehouse.products.edit',
-					component: () => import('../views/product/edit.vue'),
+					component: () => import('../views/admin/product/edit.vue'),
 				},
 				{
 					path: 'warehouse/collections',
 					name: 'warehouse.collections',
-					component: () => import('../views/collection/index.vue'),
+					component: () =>
+						import('../views/admin/collection/index.vue'),
 				},
 				{
 					path: 'warehouse/collections/create',
 					name: 'warehouse.collections.create',
-					component: () => import('../views/collection/create.vue'),
+					component: () =>
+						import('../views/admin/collection/create.vue'),
 				},
 				{
 					path: 'warehouse/collections/edit/:id',
 					name: 'warehouse.collections.edit',
-					component: () => import('../views/collection/edit.vue'),
+					component: () =>
+						import('../views/admin/collection/edit.vue'),
 				},
 				{
 					path: 'sales/discounts',
 					name: 'sales.discounts',
-					component: () => import('../views/discount/index.vue'),
+					component: () =>
+						import('../views/admin/discount/index.vue'),
 				},
 				{
 					path: 'sales/discounts/create',
 					name: 'sales.discounts.create',
-					component: () => import('../views/discount/create.vue'),
+					component: () =>
+						import('../views/admin/discount/create.vue'),
 				},
 				{
 					path: 'sales/discounts/edit/:id',
 					name: 'sales.discounts.edit',
-					component: () => import('../views/discount/edit.vue'),
+					component: () => import('../views/admin/discount/edit.vue'),
 				},
 				{
 					path: 'sales/orders',
 					name: 'sales.orders',
-					component: () => import('../views/order/index.vue'),
+					component: () => import('../views/admin/order/index.vue'),
 				},
 				{
 					path: 'sales/orders/create',
 					name: 'sales.orders.create',
-					component: () => import('../views/order/create.vue'),
+					component: () => import('../views/admin/order/create.vue'),
 				},
 				{
 					path: 'sales/orders/edit/:id',
 					name: 'sales.orders.edit',
-					component: () => import('../views/order/edit.vue'),
-				},
-				{
-					path: 'sales/invoices',
-					name: 'sales.invoices',
-					component: () => import('../views/invoice/index.vue'),
-				},
-				{
-					path: 'sales/invoices/create',
-					name: 'sales.invoices.create',
-					component: () => import('../views/invoice/create.vue'),
-				},
-				{
-					path: 'sales/invoices/edit/:id',
-					name: 'sales.invoices.edit',
-					component: () => import('../views/invoice/edit.vue'),
-				},
-				{
-					path: 'sales/invoices/view/:id',
-					name: 'sales.invoices.view',
-					component: () => import('../views/invoice/view.vue'),
-				},
-				{
-					path: 'ecomm/settings',
-					name: 'ecomm.settings',
-					component: () => import('../views/ecomm/Setting.vue'),
+					component: () => import('../views/admin/order/edit.vue'),
 				},
 				{
 					path: 'ecomm/media',
 					name: 'ecomm.media',
-					component: () => import('../views/media/index.vue'),
+					component: () => import('../views/admin/media/index.vue'),
 				},
 				{
 					path: 'warehouse/categories',
 					name: 'warehouse.categories',
-					component: () => import('../views/category/index.vue'),
+					component: () =>
+						import('../views/admin/category/index.vue'),
 				},
 				{
 					path: 'warehouse/categories/create',
 					name: 'warehouse.categories.create',
-					component: () => import('../views/category/create.vue'),
+					component: () =>
+						import('../views/admin/category/create.vue'),
 				},
 				{
 					path: 'warehouse/categories/edit/:id',
 					name: 'warehouse.categories.edit',
-					component: () => import('../views/category/edit.vue'),
+					component: () => import('../views/admin/category/edit.vue'),
 				},
 			],
 		},

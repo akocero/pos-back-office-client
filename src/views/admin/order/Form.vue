@@ -241,8 +241,8 @@
 
 <script setup>
 import Form from './Form.vue';
-import Payment from './components/Payment.vue';
-import Item from './components/Item.vue';
+import Payment from './__components__/Payment.vue';
+import Item from './__components__/Item.vue';
 
 const props = defineProps({
 	store: Object,

@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="sidebar text-md fixed z-10 h-screen w-56 bg-gray-800 pt-16 text-gray-400 duration-300 print:hidden sm:w-60 2xl:w-64"
+		class="sidebar text-md fixed z-10 h-screen w-56 bg-white pt-16 text-gray-400 duration-300 print:hidden sm:w-60 2xl:w-64"
 		:class="
 			appStore.isSidebarOpen ? 'visible left-0' : 'invisible -left-64'
 		"
@@ -41,15 +41,15 @@ const sidebarRoutes = ref([
 		active: false,
 		items: [],
 	},
-	{
-		text: 'View Online Store',
-		routeObject: { name: 'home' },
-		isRoute: true,
-		icon: 'eye',
-		active: false,
-		items: [],
-		newTab: true,
-	},
+	// {
+	// 	text: 'View Online Store',
+	// 	routeObject: { name: 'home' },
+	// 	isRoute: true,
+	// 	icon: 'eye',
+	// 	active: false,
+	// 	items: [],
+	// 	newTab: true,
+	// },
 	{
 		text: 'Sales',
 		routeObject: {},
@@ -57,11 +57,6 @@ const sidebarRoutes = ref([
 		isRoute: false,
 		active: false,
 		items: [
-			{
-				text: 'Invoices',
-				routeObject: { name: 'sales.invoices' },
-				active: false,
-			},
 			{
 				text: 'Orders',
 				routeObject: { name: 'sales.orders' },
@@ -110,11 +105,6 @@ const sidebarRoutes = ref([
 		isRoute: false,
 		active: false,
 		items: [
-			{
-				text: 'Settings',
-				routeObject: { name: 'ecomm.settings' },
-				active: false,
-			},
 			{
 				text: 'Media',
 				routeObject: { name: 'ecomm.media' },

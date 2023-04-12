@@ -1,14 +1,14 @@
 <template>
 	<header class="fixed z-20 flex h-14 w-full print:hidden">
 		<div
-			class="hidden w-60 items-center border-gray-200 bg-main px-4 text-white shadow-sm sm:flex 2xl:w-64"
+			class="hidden w-60 items-center border-gray-200 bg-white px-7 text-gray-800 sm:flex 2xl:w-64"
 		>
 			<vue-feather
 				type="shopping-bag"
 				size="22"
 				class="mr-2"
 			></vue-feather>
-			<span class="font-comfortaa font-bold">Papierenei</span>
+			<span class="font-comfortaa font-bold">Mia's POS</span>
 			<a href="#" class="ml-auto" @click="appStore.toggleSidebar">
 				<vue-feather
 					:type="
@@ -20,7 +20,7 @@
 			</a>
 		</div>
 		<nav
-			class="flex grow items-center bg-main px-6 text-white shadow-sm sm:bg-white sm:text-gray-900"
+			class="flex grow items-center bg-main px-6 text-white sm:bg-gray-100 sm:text-gray-900"
 		>
 			<a href="#" class="sm:hidden" @click="appStore.toggleSidebar">
 				<vue-feather

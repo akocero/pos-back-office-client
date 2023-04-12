@@ -33,9 +33,9 @@
 
 <script setup>
 import { ref } from 'vue';
-import BaseModal from '../components/BaseModal.vue';
+import BaseModal from '@/components/BaseModal.vue';
 // import ManageImage from '@/components/ManageImage.vue';
-import useAlert from '../composables/useAlert';
+import useAlert from '@/composables/useAlert';
 
 const { pushToast } = useAlert();
 const isOpen = ref(false);

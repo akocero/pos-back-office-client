@@ -12,20 +12,10 @@
 </template>
 
 <script setup>
-import BaseButton from '@/components/BaseButton.vue';
-import BaseInput from '@/components/BaseInput.vue';
-import InputMultiple from '@/components/InputMultiple.vue';
-import BaseSelect from '@/components/BaseSelect.vue';
-import BaseTextArea from '@/components/BaseTextArea.vue';
-import DisplayFieldArray from '@/components/DisplayFieldArray.vue';
-import useInputMultiple from '@/composables/useInputMultiple';
-import Spinner from '@/components/Spinner.vue';
-import { onBeforeMount, ref, watch } from 'vue';
-import SelectSearch from '@/components/SelectSearch.vue';
+import { onBeforeMount } from 'vue';
 import { useCategoryStore } from '@/stores/category';
 import useAlert from '../../composables/useAlert';
 import { useRoute, useRouter } from 'vue-router';
-import ImageManager from '@/components/image_module/ImageManager.vue';
 import Form from './Form.vue';
 
 const router = useRouter();

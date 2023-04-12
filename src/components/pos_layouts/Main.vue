@@ -1,10 +1,9 @@
 <template>
 	<div class="relative font-quicksand text-gray-800">
-		<Banner :text="store.activeBanner.text" v-if="store.item" />
 		<Navbar />
 		<AlertList :alerts="alerts" />
 		<main class="">
-			<RouterView :ecommSettingsStore="store" />
+			<RouterView />
 		</main>
 		<Footer />
 	</div>
@@ -12,18 +11,15 @@
 
 <script setup>
 import { onBeforeMount } from 'vue';
-import { useEcommSettingStore } from '@/stores/ecomm_setting';
 import Navbar from './Navbar.vue';
 import Footer from './Footer.vue';
-import Banner from '../ecommerce/Banner.vue';
 import useAlert from '@/composables/useAlert.js';
 import AlertList from '@/components/AlertList.vue';
 
 const { alerts } = useAlert();
-const store = useEcommSettingStore();
+
 onBeforeMount(async () => {
 	// Load Ecommerce Store Data e.g Banner, Hero, Bg's
-	await store.load();
 });
 </script>
 
